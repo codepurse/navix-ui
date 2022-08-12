@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@navix-ui*": ["components/button*"],
+    }
+  }
+}

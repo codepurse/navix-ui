@@ -1,3 +1,8 @@
+import { Avatar } from "navix-ui/navix";
 export default function index() {
-  return <></>;
+  return (
+    <>
+      <Avatar label="test muna"></Avatar>
+    </>
+  );
 }

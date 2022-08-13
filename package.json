@@ -17,7 +17,7 @@
     "sass": "^1.54.3"
   },
   "name": "@codepurse/navix-ui",
-  "version": "v0.1.1-alpha",
+  "version": "v0.1.2-alpha",
   "description": "",
   "author": "codepurse",
   "license": "ISC",

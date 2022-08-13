@@ -21,7 +21,7 @@
   "description": "",
   "author": "codepurse",
   "license": "ISC",
-  "main": "navix-ui/navix.js",
+  "main": ".l",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/@codepurse"
   }

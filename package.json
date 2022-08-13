@@ -22,10 +22,6 @@
   "author": "codepurse",
   "license": "ISC",
   "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/codepurse/navix-ui.git"
-  },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/@codepurse"
   }

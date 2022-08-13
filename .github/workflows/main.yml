@@ -16,4 +16,4 @@ jobs:
       - run: npm install
       - run: npm publish
         env:
-          NPM_TOKEN: ${{ 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 }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

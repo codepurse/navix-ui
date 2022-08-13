@@ -44,7 +44,7 @@ export default function Button(props, ...atrrs) {
     borderRadius: props.circular ? "500px" : null,
   };
 
-  const customStyle = { ...propsStyle, ...props.css.button };
+  const customStyle = { ...propsStyle, ...props.css?.button };
 
   return (
     <button
@@ -70,7 +70,7 @@ export default function Button(props, ...atrrs) {
       ) : (
         <Fragment>
           <i className={styles.iNvxIconLeft}>{props.iconLeft}</i>
-          {props.title}
+          {props.children}
           <i className={styles.iNvxIconRight}>{props.iconRight}</i>
         </Fragment>
       )}

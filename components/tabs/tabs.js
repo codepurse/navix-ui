@@ -17,6 +17,8 @@ Tabs.propTypes = {
 
 export default function Tabs(props) {
   const [activeKey, setActiveKey] = useState(null);
+  const [countHeader, setCountHeader] = useState();
+  const [countContent, setCountContent] = useState();
   const propStyle = {
     backgroundColor: props.backDrop,
     variant: props.variant,
@@ -29,7 +31,14 @@ export default function Tabs(props) {
 
   useEffect(
     (e) => {
-      console.log(props.children);
+      var filteredHeader = props.children.filter(function (element) {
+        return element.type?.name.includes("TabHeader");
+      }).length;
+      var filteredContent = props.children.filter(function (element) {
+        return element.type?.name.includes("TabContent");
+      }).length;
+      setCountContent(filteredContent);
+      setCountHeader(filteredHeader);
       if (props.defaultKey) {
         setActiveKey(props.defaultKey);
       }
@@ -37,51 +46,67 @@ export default function Tabs(props) {
     [props.children]
   );
 
-  const [keyTab, setKeyTab] = useState();
   return (
     <div id="tsum-tabs">
       <main style={props.centered ? centered : null}>
         <TabContext.Provider value={{ propStyle, activeKey }}>
-          {props.children
-            .filter((event) => event.type.name.includes("TabHeader"))
-            .map((filteredComponent, key) => (
-              <Fragment key={key}>
-                {(() => {
-                  return (
-                    <span
-                      onClick={(e) => {
-                        if (filteredComponent.props.disable) {
-                          e.preventDefault();
-                          return;
-                        } else {
-                          try {
-                            filteredComponent.props.onClick();
-                          } catch (error) {}
-                          setKeyTab(filteredComponent.props.id);
-                          setActiveKey(filteredComponent.props.id);
-                        }
-                      }}
-                    >
-                      {filteredComponent}
-                    </span>
-                  );
-                })()}
-              </Fragment>
-            ))}
+          {(() => {
+            if (countHeader > 1) {
+              return (
+                <Fragment>
+                  {props.children
+                    .filter((event) => event.type?.name.includes("TabHeader"))
+                    .map((filteredComponent, key) => (
+                      <Fragment key={key}>
+                        {(() => {
+                          return (
+                            <span
+                              onClick={(e) => {
+                                if (filteredComponent.props.disable) {
+                                  e.preventDefault();
+                                  return;
+                                } else {
+                                  try {
+                                    filteredComponent.props.onClick();
+                                  } catch (error) {}
+                                  setActiveKey(filteredComponent.props.id);
+                                }
+                              }}
+                            >
+                              {filteredComponent}
+                            </span>
+                          );
+                        })()}
+                      </Fragment>
+                    ))}
+                </Fragment>
+              );
+            } else {
+              return <Fragment> {props.children}</Fragment>;
+            }
+          })()}
         </TabContext.Provider>
       </main>
       <div>
-        {props.children
-          .filter((event) => event.type.name.includes("TabContent"))
-          .map((filteredComponent, key) => (
-            <Fragment key={key}>
-              {(() => {
-                if (keyTab === filteredComponent.props.id) {
-                  return <div>{filteredComponent.props.children}</div>;
-                }
-              })()}
-            </Fragment>
-          ))}
+        {(() => {
+          if (countContent > 0) {
+            return (
+              <Fragment>
+                {props.children
+                  .filter((event) => event.type?.name.includes("TabContent"))
+                  .map((filteredComponent, key) => (
+                    <Fragment key={key}>
+                      {(() => {
+                        if (activeKey === filteredComponent.props.id) {
+                          return <div>{filteredComponent.props.children}</div>;
+                        }
+                      })()}
+                    </Fragment>
+                  ))}
+              </Fragment>
+            );
+          }
+        })()}
       </div>
     </div>
   );

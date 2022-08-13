@@ -70,7 +70,9 @@ export default function text(props) {
           }
         }}
         onChange={(e) => {
-          props.onChange(e);
+          try {
+            props.onChange(e);
+          } catch (error) {}
         }}
       ></input>
       <i className="inputIconLeft" style={props.css?.text?.iconLeft}>

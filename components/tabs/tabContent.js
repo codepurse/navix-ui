@@ -1,7 +1,5 @@
 const TabContent = (props) => {
-  return activeTab === id ? (
-    <div className="nvxTabContent">{props.children}</div>
-  ) : null;
+  return <div className="nvxTabContent">{props.children}</div>;
 };
 
 export default TabContent;

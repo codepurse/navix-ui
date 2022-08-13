@@ -16,7 +16,7 @@
   "devDependencies": {
     "sass": "^1.54.3"
   },
-  "name": "@navix/navix-ui",
+  "name": "@codepurse/navix-ui",
   "version": "v0.1.0-alpha",
   "description": "",
   "author": "codepurse",
@@ -24,5 +24,8 @@
   "main": "index.js",
   "repository": {
     "url": "https://github.com/codepurse/navix-ui.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@codepurse"
   }
 }

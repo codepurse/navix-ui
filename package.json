@@ -17,11 +17,11 @@
     "sass": "^1.54.3"
   },
   "name": "@codepurse/navix-ui",
-  "version": "v0.1.0-alpha",
+  "version": "v0.1.1-alpha",
   "description": "",
   "author": "codepurse",
   "license": "ISC",
-  "main": "index.js",
+  "main": "navix-ui/navix.js",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/@codepurse"
   }

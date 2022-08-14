@@ -21,7 +21,7 @@
     "webpack-cli": "^3.2.1"
   },
   "name": "@codepurse/navix-ui",
-  "version": "v0.1.4-alpha",
+  "version": "v0.1.4-alphav1",
   "description": "",
   "author": "codepurse",
   "license": "ISC",
